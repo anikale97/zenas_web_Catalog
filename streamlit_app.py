@@ -1,6 +1,7 @@
 import streamlit
 import snowflake.connector
 import pandas
+import requests
 streamlit.title('Zena\'s Amazing Athleisure Catalog')
 # connect to snowflake
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
@@ -26,6 +27,5 @@ streamlit.image(df2[0],width=400,caption= product_caption)
 streamlit.write('Price: ', df2[1])
 streamlit.write('Sizes Available: ',df2[2])
 streamlit.write(df2[3])
-import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 streamlit.text(fruityvice_response)
